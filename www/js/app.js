@@ -20,11 +20,22 @@ angular.module('starter', ['ionic'])
 
 .controller('AppCtrl', function($scope, $http) {
     $scope.data = {};
+    var postData = {
+        function = "GetTerminalNumber",
+        filename = "commonapp",
+        AccessType=0,
+        TerminalType=001,
+        TerminalInfo="android",
+
+      kycinfo : $scope.data.kycinfo ,
+       phone : $scope.data.phoneno, 
+       emailaddress : $scope.data.email ,
+  };
 
     $scope.submit = function(){
-        var link = 'http://nikola-breznjak.com/_testings/ionicPHP/api.php';
+        var link = 'http://qa310-res-m.panamaxil.com/commonrest/commonrest/';
 
-        $http.post(link, {username : $scope.data.username}).then(function (res){
+        $http.post(link, postData).then(function (res){
             $scope.response = res.data;
         });
     };
